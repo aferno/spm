@@ -1,0 +1,20 @@
+version: '2'
+services:
+ web:
+   restart: always
+   build: ./web
+   ports:
+     - "8000:8000"
+   volumes:
+     - ./web/app/:/webapp
+   command: ["uwsgi", "--http", "0.0.0.0:8000", "--module", "app:app", "--processes", "1", "--threads", "8", "--py-autoreload", "1"]
+
+ nginx:
+   restart: always
+   build: ./nginx
+   ports:
+     - "80:80"
+   volumes:
+     - ./frontend/app/dist:/var/www/html
+   # depends_on:
+   #   - web

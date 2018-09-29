@@ -1,0 +1,8 @@
+#Ingore nodejs dep
+node_modules/
+#Ignore build version
+dist/
+#Ignore python cache
+__pycache__/
+#Ignore bash history from container
+.bash_history
