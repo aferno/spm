@@ -21,8 +21,5 @@ RUN pip3 install uwsgi
 # Install app requirements
 RUN pip3 install -r requirements.txt
 
-# Create app directory
-#ADD /home/philip/blog/web/project /webapp
-
 # Expose port 8000 for uwsgi
 EXPOSE 8000
