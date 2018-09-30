@@ -1,19 +1,18 @@
 import os
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config(object):
-
     DEBUG = False
+    TESTING = False
+    DATABASE_URI = 'sqlite://:memory:'
 
-    # CSRF_ENABLED = True
-    #
-    # SECRET_KEY = 'YOUR_RANDOM_SECRET_KEY'
-    #
-    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-    # SQLALCHEMY_TRACK_MODIFICATIONS = False
+class ProductionConfig(Config):
+    DATABASE_URI = 'mysql://user@localhost/foo'
 
-class ProductionConfig(object):
-    DEBUG = False
-
-class DevelopmentConfig(object):
+class DevelopmentConfig(Config):
     DEBUG = True
-    DEVELOPMENT = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+class TestingConfig(Config):
+    TESTING = True
