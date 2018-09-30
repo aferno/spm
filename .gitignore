@@ -6,3 +6,5 @@ dist/
 __pycache__/
 #Ignore bash history from container
 .bash_history
+#Ignore ide files
+.idea/
