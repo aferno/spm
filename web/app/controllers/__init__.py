@@ -1,2 +1,2 @@
-from .articles import *
+from .articles_controllers import *
 

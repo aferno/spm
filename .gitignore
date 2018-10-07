@@ -8,3 +8,6 @@ __pycache__/
 .bash_history
 #Ignore ide files
 .idea/
+
+#Ignore any databases
+*.db

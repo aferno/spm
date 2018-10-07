@@ -1,5 +1,8 @@
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String
+#from app import db
+from werkzeug.local import LocalProxy
+
+db = LocalProxy(get_db)
 
 class Articles(db.Model):
     id = Column(Integer, primary_key=True)

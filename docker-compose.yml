@@ -3,8 +3,8 @@ services:
  web:
    restart: always
    build: ./web
-   expose:
-     - "8000"
+   ports:
+     - "8000:8000"
    volumes:
      - ./web/app/:/webapp
    command: ["uwsgi", "--http", "0.0.0.0:8000", "--module", "app:app", "--processes", "1", "--threads", "8", "--py-autoreload", "1"]
