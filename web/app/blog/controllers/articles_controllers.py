@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from models import Articles
+from ..models import Articles, db
 
 class articles(Resource):
     def get(self):
