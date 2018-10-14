@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>Блог</h1>
-    <h2>{{ posts.msg }}</h2>
+    <h2>{{ posts }}</h2>
   </div>
 </template>
 

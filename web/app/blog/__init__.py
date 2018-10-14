@@ -12,7 +12,7 @@ def create_app(config_filename):
     api = Api(app)
 
     from .controllers import article, articles
-    api.add_resource(articles, "/articles", "/GET")
-    api.add_resource(article, "/article/<int:articleId>", "/GET", "/POST", "/DELETE")
+    api.add_resource(articles, "/api/articles", "/GET")
+    api.add_resource(article, "/api/article/<int:articleId>", "/GET", "/POST", "/DELETE")
 
     return app

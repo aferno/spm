@@ -10,7 +10,6 @@ class article(Resource):
     def get(self, articleId):
         article = Articles.query.get(articleId)
         return article.to_json()
-        #return "Yeee it works article"
     def post(self, articleId):
         article = Articles(article = 'Body')
         db.session.add(article)

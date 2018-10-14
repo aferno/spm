@@ -6,6 +6,7 @@ db=SQLAlchemy()
 class Articles(db.Model):
     id = Column(Integer, primary_key=True)
     article = Column(String(128))
+    __searchable__ = []
     
     def to_json(self):
         return dict(id=self.id, article=self.article)
