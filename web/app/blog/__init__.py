@@ -11,8 +11,9 @@ def create_app(config_filename):
 
     api = Api(app)
 
-    from .controllers import article, articles
+    from .controllers import article, articles, search
     api.add_resource(articles, "/api/articles", "/GET")
     api.add_resource(article, "/api/article/<int:articleId>", "/GET", "/POST", "/DELETE")
+    api.add_resource(search, "/api/search/<string:searchText>", "/GET")
 
     return app
