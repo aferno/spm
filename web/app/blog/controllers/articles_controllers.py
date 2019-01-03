@@ -11,7 +11,8 @@ class article(Resource):
         article = Articles.query.get(articleId)
         return article.to_json()
     def post(self, articleId):
-        article = Articles(title = 'This is first article', article = '<h1>Lorem ipsum dolor sit amet</h1>, <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>')
+        article = Articles(title = 'Крутой поиск на сайте', article = '<h1>Примерную схему работы конвейера можно увидеть на картинке поблизости. Анализ начинается с опциональных символьных фильтров</h1>,'
+        + '<p> Полученный результат передается токенизатору, главному и единственному обязательному элементу анализатора. Здесь предложение очищается от знаков препинания, разбивается на отдельные слова-токены, которые могут либо сохранять имеющуюся форму, либо обрезаться только до основы слова, либо обрабатываться еще каким-либо образом в зависимости от токенизатора.</p>')
         db.session.add(article)
         db.session.commit()
         return 'Done!'

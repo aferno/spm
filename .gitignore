@@ -11,3 +11,5 @@ __pycache__/
 
 #Ignore any databases
 *.db
+#Ignore virtual env
+venv/

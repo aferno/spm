@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
-    <h1>Блог</h1>
-    <h2>{{ posts }}</h2>
+    <h1>Самое интересное</h1>
+    <h2 v-for="post in posts" :key="post">
+      <router-link :to="{ name: 'Article', params: { id: post.id }}">{{ post.title }}</router-link>
+    </h2>
   </div>
 </template>
 
@@ -13,7 +15,8 @@ export default {
   name: 'Articles',
   data: () => ({
     posts: [],
-    errors: []
+    errors: [],
+    post: []
   }),
 
   created () {
