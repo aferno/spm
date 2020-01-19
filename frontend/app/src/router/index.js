@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Articles from '@/components/Articles'
 import Article from '@/components/Article'
 
@@ -10,11 +9,6 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/hello',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
       path: '/articles',
       name: 'Articles',
       component: Articles
@@ -23,6 +17,12 @@ export default new Router({
       path: '/article/:id',
       name: 'Article',
       component: Article
+    },
+    {
+      path: '/admin',
+      name: 'Article',
+      component: Article
     }
+
   ]
 })

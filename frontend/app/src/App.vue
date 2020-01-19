@@ -1,8 +1,27 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-     <router-link :to="{ name: 'Articles' }">Articles</router-link>
-     <router-link :to="{ name: 'HelloWorld' }">Hello Page</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="/">Блог</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <router-link :to="{ name: 'Articles' }" class="nav-link">Статьи</router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">О блоге</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Самое интересное</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Контакты</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </nav>
+    <!-- <img src="./assets/home-bg.jpg"> -->
     <router-view/>
   </div>
 </template>
@@ -13,13 +32,10 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style src="./assets/css/main.css"></style>
+<style src="./assets/css/clean-blog.css"></style>
+<style scoped>
+.masthead {
+  background-image: url(assets/home-bg.jpg);
 }
 </style>

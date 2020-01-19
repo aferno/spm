@@ -4,8 +4,9 @@ node_modules/
 dist/
 #Ignore python cache
 __pycache__/
-#Ignore bash history from container
+#Ignore any history from container
 .bash_history
+.python_history
 #Ignore ide files
 .idea/
 

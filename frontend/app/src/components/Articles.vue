@@ -1,22 +1,40 @@
 <template>
   <div class="hello">
-    <h1>Самое интересное</h1>
-    <h2 v-for="post in posts" :key="post">
+    <Header :theme="theme" :bg="require('@/assets/home-bg.jpg')"></Header>
+    <h1>Статьи</h1>
+    <!-- <input v-model="message" placeholder="Поиск по сайту">
+    <p>Request to the server with {{ message }}</p> -->
+    <h2 v-for="post in posts" :key="post" class="article-title">
       <router-link :to="{ name: 'Article', params: { id: post.id }}">{{ post.title }}</router-link>
     </h2>
+    <div class="container">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <div v-for="post in posts" :key="post" class="article-preview-block">
+                <div v-html="post.article" class="article-preview"></div>
+              </div>
+            </div>
+          </div>
+    </div>
   </div>
 </template>
 
 <script>
 
 import axios from 'axios'
+import Header from '@/components/Header'
 
 export default {
   name: 'Articles',
+  components: {
+    Header
+  },
   data: () => ({
+    message: '',
     posts: [],
     errors: [],
-    post: []
+    post: [],
+    theme: 'Блог о всем'
   }),
 
   created () {
@@ -46,5 +64,13 @@ li {
 }
 a {
   color: #42b983;
+}
+.article-title {
+  color: rgb(44, 62, 80) !important;
+}
+.article-preview {
+  height: 150px;
+  overflow: hidden;
+  font-size: 20px;
 }
 </style>
