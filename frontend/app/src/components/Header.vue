@@ -24,7 +24,8 @@ export default {
 }
 </script>
 <style scoped>
-/* .masthead {
-  background-image: url(../assets/home-bg.jpg);
-} */
+.masthead {
+  /* background-image: url(../assets/home-bg.jpg); */
+  z-index: 10;
+}
 </style>

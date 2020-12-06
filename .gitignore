@@ -9,6 +9,8 @@ __pycache__/
 .python_history
 #Ignore ide files
 .idea/
+#Ignore DS_Store file
+.DS_Store
 
 #Ignore any databases
 *.db

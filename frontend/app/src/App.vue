@@ -9,7 +9,7 @@
               <router-link :to="{ name: 'Articles' }" class="nav-link">Статьи</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">О блоге</a>
+              <router-link :to="{ name: 'About' }" class="nav-link">О блоге</router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="post.html">Самое интересное</a>

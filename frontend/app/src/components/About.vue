@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+   <Header :theme="theme" :bg="require('@/assets/home-bg.jpg')"></Header>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -82,10 +83,16 @@
     </ul>
   </div>
 </template>
-
 <script>
+
+import Header from '@/components/Header'
+
 export default {
   name: 'About',
+  theme: 'What',
+  components: {
+    Header
+  },
   data () {
     return {
       msg: 'Блог о всем'
