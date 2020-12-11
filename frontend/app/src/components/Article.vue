@@ -1,28 +1,28 @@
 <template>
   <div>
     <Header :theme="post.title" :bg="require('@/assets/post-bg.jpg')"></Header>
-    <div class="article">
+    <div>
       <h1>Статья #{{ post.id }}</h1>
-      <article>
+      <article class="article">
+        <a class="article__back-link" style="" v-on:click="navigateBack()">Назад</a>
         <div class="container">
           <div class="row">
             <div class="col-lg-12 col-md-12 mx-auto main-article">
               <p v-html="post.article"></p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati provident dolores laborum
                  laudantium odit nihil numquam tenetur ad, ullam debitis consequuntur mollitia hic similique
-                  neque rem quis delectus soluta iste veritatis aut, dolor velit? Minima quia aperiam quidem 
+                  neque rem quis delectus soluta iste veritatis aut, dolor velit? Minima quia aperiam quidem
                   vel quisquam, nesciunt illo numquam neque illum fuga itaque porro dolore, recusandae molestiae
                    animi alias temporibus rerum possimus sint aliquam cum, ut inventore et facilis. Dignissimos
-                    modi vitae illo dolorum iure ex a explicabo debitis harum voluptatibus, nesciunt laborum, 
-                    dicta quos quo impedit sint asperiores quia facilis deserunt. Doloremque, dolorem voluptatum 
+                    modi vitae illo dolorum iure ex a explicabo debitis harum voluptatibus, nesciunt laborum,
+                    dicta quos quo impedit sint asperiores quia facilis deserunt. Doloremque, dolorem voluptatum
                     ea id culpa maxime earum. Itaque cupiditate quas praesentium optio a!</p>
             </div>
           </div>
         </div>
       </article>
-      <a class="article__back-link" style="" v-on:click="navigateBack()">Назад</a>
     </div>
-    
+
   </div>
 </template>
 <script>
@@ -36,15 +36,12 @@ export default {
   components: {
     Header
   },
-
   data: () => ({
     errors: [],
     post: []
   }),
-
   created () {
     this.id = this.$route.params.id
-
     axios.get('/api/article/' + this.id)
       .then(response => {
         this.post = response.data
@@ -53,7 +50,6 @@ export default {
         this.errors.push(e)
       })
   },
-
   methods: {
     navigateBack () {
       router.go(-1)
@@ -85,21 +81,27 @@ export default {
   }
   .article__back-link {
     bottom: 0 !important;
+    position: fixed !important;
+    overflow: hidden;
+    z-index: 999;
     width: 100%;
     left: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important
   }
+  .main-article {
+    padding-bottom: 20px;
+  }
 }
 .article__back-link {
-  cursor: pointer; 
+  cursor: pointer;
   border-radius: 10px;
   background-color: #42b983;
-  position: fixed;
+  position: absolute;
   font-size: 25px;
   padding: 15px 30px;
   left: 20px;
-  bottom: 10%;
+  bottom: 40%;
   text-decoration: underline;
 }
 .article__back-link:hover {
@@ -124,4 +126,3 @@ a {
   color: #42b983;
 }
 </style>
- 

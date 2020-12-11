@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bgc-navbar" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="/">Блог</a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -33,8 +33,13 @@ export default {
 </script>
 
 <style src="./assets/css/main.css"></style>
+<style src="./assets/css/correct.css"></style>
 <style src="./assets/css/clean-blog.css"></style>
-<style scoped>
+<style>
+.bgc-navbar {
+  //z-index: 1;
+  background-color: #000000;
+}
 .masthead {
   background-image: url(assets/home-bg.jpg);
 }

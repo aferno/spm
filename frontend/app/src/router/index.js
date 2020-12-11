@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Articles from '@/components/Articles'
 import Article from '@/components/Article'
-import About from '@/components/About'
+import Admin from '@/components/pages/Admin'
+import About from '@/components/pages/About'
 
 Vue.use(Router)
 
@@ -21,14 +22,13 @@ export default new Router({
     },
     {
       path: '/admin',
-      name: 'Article',
-      component: Article
+      name: 'Admin',
+      component: Admin
     },
     {
       path: '/about',
       name: 'About',
       component: About
     }
-
   ]
 })
