@@ -1,5 +1,7 @@
 from elasticsearch import Elasticsearch
 
+#es = Elasticsearch("127.0.0.1:9200")
+
 es = Elasticsearch("es:9200")
 
 def add_to_index(index, model):
