@@ -11,7 +11,8 @@
              v-for="(item, index) in items"
              v-bind:key="item.id"
              v-bind:item="item">
-          <div class="list-items__title" >{{item.title}}</div>
+          <router-link class="list-items__title" :to="{ name: 'Article', params: { id: item.id }}">{{ item.title }}</router-link>
+<!--          <div  >{{item.title}}</div>-->
           <div class="list-items__controls">
             <div class="list-items__edit" @click="$emit('edit-articles', item)"><img src="@/assets/icons/edit.png" alt=""></div>
             <div class="list-items__delete" @click="del(item.id, items, index)"><img src="@/assets/icons/trash.png" alt=""></div>
