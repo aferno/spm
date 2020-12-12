@@ -2,10 +2,9 @@
   <div class="wrapper">
     <div class="head-bg"></div>
     <div class="container">
-
       <list-of-articles></list-of-articles>
       <p>Lorem ipsum dolor sit amet.</p>
-      <quillEditor @change="onEditorChange($event)"></quillEditor>
+      <Wysiwyg></Wysiwyg>
     </div>
   </div>
 </template>
@@ -14,21 +13,16 @@
 
 import router from '@/router'
 import Header from '@/components/Header'
-// import Wysiwyg from '@/components/Wysiwyg'
+import Wysiwyg from '@/components/Wysiwyg'
 import ListOfArticles from '@/components/ListOfArticles'
 
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
-
-import { quillEditor } from 'vue-quill-editor'
 
 export default {
   name: 'Article',
   components: {
+    Wysiwyg,
     Header,
-    ListOfArticles,
-    quillEditor
+    ListOfArticles
   },
   data: () => ({
     errors: []
@@ -36,21 +30,13 @@ export default {
   methods: {
     navigateBack () {
       router.go(-1)
-    },
-    onEditorChange({ quill, html, text }) {
-      console.log(JSON.stringify({title: "Piska", content: html}))
-
-      this.content = html.json;
     }
   }
 }
 
 </script>
 
-<style>
-  .head-bg {
-
-  }
+<style scoped>
   .wrapper {
     position: absolute;
     top: 0;
