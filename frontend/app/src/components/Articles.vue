@@ -7,16 +7,16 @@
     <h2 v-for="post in posts" :key="post" class="article-title">
       <router-link :to="{ name: 'Article', params: { id: post.id }}">{{ post.title }}</router-link>
     </h2>
-    <div class="container">
-          <div class="row">
-            <div class="col-lg-12 mx-auto">
-              <div v-for="post in posts" :key="post" class="article-preview-block">
-                <div v-html="post.article" class="article-preview"></div>
-              </div>
-            </div>
-          </div>
-    </div>
-  </div>
+<!--    <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-12 mx-auto">-->
+<!--              <div v-for="post in posts" :key="post" class="article-preview-block">-->
+<!--                <div v-html="post.article" class="article-preview"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </template>
 
 <script>

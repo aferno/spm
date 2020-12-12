@@ -2,10 +2,14 @@
   <div class="wrapper">
     <div class="head-bg"></div>
     <div class="container">
-      <list-of-articles></list-of-articles>
-      <p>Lorem ipsum dolor sit amet.</p>
-      <Wysiwyg></Wysiwyg>
+      <list-of-articles
+        v-on:edit-articles='editArticle'
+        v-on:create-articles='createArticles'
+        :items="items"
+        >
+      </list-of-articles>
     </div>
+    <Wysiwyg v-on:close-wysiwyg="closeModal" v-show="visible" :item="item"></Wysiwyg>
   </div>
 </template>
 
@@ -15,6 +19,7 @@ import router from '@/router'
 import Header from '@/components/Header'
 import Wysiwyg from '@/components/Wysiwyg'
 import ListOfArticles from '@/components/ListOfArticles'
+import axios from "axios";
 
 
 export default {
@@ -25,11 +30,33 @@ export default {
     ListOfArticles
   },
   data: () => ({
-    errors: []
+      errors: [],
+      visible: false,
+      items: [],
+      item: {}
   }),
+  created () {
+    axios.get('api/articles')
+      .then(response => {
+        this.items = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
   methods: {
     navigateBack () {
       router.go(-1)
+    },
+    createArticles: function () {
+      this.visible = true;
+    },
+    editArticle: function (item){
+      this.visible = true;
+      this.item = item;
+    },
+    closeModal: function () {
+      this.visible = false;
     }
   }
 }
@@ -41,6 +68,6 @@ export default {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 </style>

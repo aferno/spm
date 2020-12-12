@@ -1,3 +1,68 @@
+.wrapper-wysiwyg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  padding: 4rem 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wysiwyg {
+  z-index: 101;
+  padding: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: #fff;
+}
+.modal-wysiwyg__label {
+  text-align: left;
+  font-size: 20px;
+}
+.modal-wysiwyg__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.modal-wysiwyg__close {
+  position: relative;
+  cursor: pointer;
+  width: 4rem;
+  transition: all 0.3s ease-in-out;
+}
+.modal-wysiwyg__close:hover {
+  transform: scale(1.2);
+}
+.modal-wysiwyg__close::after, .modal-wysiwyg__close::before {
+  content: "";
+  left: 25%;
+  top: 50%;
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  background: #000;
+}
+.modal-wysiwyg__close::before {
+  transform: rotate(-45deg);
+}
+.modal-wysiwyg__close::after {
+  transform: rotate(45deg);
+}
+.modal-wysiwyg__send-button {
+  margin-top: 4rem;
+}
+
+.add-new-button {
+  margin-top: 2rem;
+}
+
 .head-bg {
   height: 7rem;
   background-color: rgba(0, 0, 0, 0.7);

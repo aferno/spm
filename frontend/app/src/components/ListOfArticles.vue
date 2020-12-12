@@ -1,51 +1,55 @@
 <template>
-  <div class="article-list">
-    <div class="article-list__title">
-      Список записей
-    </div>
-    <div class="list-items">
-      <div class="list-items__item"
-           v-for="(item, index) in items"
-           v-bind:key="item.id"
-           v-bind:item="item"
-      >
-        <div class="list-items__title">{{item.title}}</div>
-        <div class="list-items__date-create">{{item.creationDate}}</div>
-        <div class="list-items__controls">
-          <div class="list-items__edit" @click="edit(item)"><img src="@/assets/icons/edit.png" alt=""></div>
-          <div class="list-items__delete" @click="del(index, items)"><img src="@/assets/icons/trash.png" alt=""></div>
+  <div>
+      <button class="add-new-button" @click="$emit('create-articles')">Добавить новую запись</button>
+    <div class="article-list">
+      <div class="article-list__title">
+        Список записей
+      </div>
+      <div class="list-items">
+        <div class="list-items__item"
+             v-model="items"
+             v-for="(item, index) in items"
+             v-bind:key="item.id"
+             v-bind:item="item">
+          <div class="list-items__title" >{{item.title}}</div>
+          <div class="list-items__controls">
+            <div class="list-items__edit" @click="$emit('edit-articles', item)"><img src="@/assets/icons/edit.png" alt=""></div>
+            <div class="list-items__delete" @click="del(item.id, items, index)"><img src="@/assets/icons/trash.png" alt=""></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>
 
+import axios from "axios";
+
 export default {
   name: 'ListOfArticles',
+  props: ['items'],
   data: function() {
     return {
-        items: [
-          {
-            id: 1,
-            title: 'Event 1',
-            creationDate: '2015-09-10'
-          },
-          {
-            id: 2,
-            title: 'Event 2',
-            creationDate: '2015-10-02'
-          }
-        ]
+        // items: []
       };
-},
+  },
+
   methods: {
     edit: (item) => {
       console.log(item)
     },
-    del: (idx, items) => {
-      items.splice(idx, 1)
+    del: (id, items, idx) => {
+      axios.delete(`api/article/${id}`)
+        .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+          console.log(error);
+          });
+      items.splice(idx, 1);
     }
   }
 }
