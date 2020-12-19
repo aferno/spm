@@ -122,8 +122,12 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.pack {
+  padding-bottom: 4rem;
+}
+
 .article-list {
-  margin-top: 4rem;
+  margin: 4rem 0;
   border: 1px solid #42b983;
   border-radius: 20px 0 20px 0;
 }

@@ -19,8 +19,7 @@ import router from '@/router'
 import Header from '@/components/Header'
 import Wysiwyg from '@/components/Wysiwyg'
 import ListOfArticles from '@/components/ListOfArticles'
-import axios from "axios";
-
+import axios from 'axios'
 
 export default {
   name: 'Article',
@@ -30,10 +29,10 @@ export default {
     ListOfArticles
   },
   data: () => ({
-      errors: [],
-      visible: false,
-      items: [],
-      item: {}
+    errors: [],
+    visible: false,
+    items: [],
+    item: {}
   }),
   created () {
     axios.get('api/articles')
@@ -49,14 +48,15 @@ export default {
       router.go(-1)
     },
     createArticles: function () {
-      this.visible = true;
+      this.visible = true
+      this.item = []
     },
-    editArticle: function (item){
-      this.visible = true;
-      this.item = item;
+    editArticle: function (item) {
+      this.visible = true
+      this.item = item
     },
     closeModal: function () {
-      this.visible = false;
+      this.visible = false
     }
   }
 }

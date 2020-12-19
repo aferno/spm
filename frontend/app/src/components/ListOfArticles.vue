@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pack">
       <button class="add-new-button" @click="$emit('create-articles')">Добавить новую запись</button>
     <div class="article-list">
       <div class="article-list__title">
@@ -21,20 +21,17 @@
     </div>
   </div>
 
-
 </template>
 
 <script>
 
-import axios from "axios";
+import axios from 'axios'
 
 export default {
   name: 'ListOfArticles',
   props: ['items'],
-  data: function() {
-    return {
-        // items: []
-      };
+  data: function () {
+    return {}
   },
 
   methods: {
@@ -44,12 +41,12 @@ export default {
     del: (id, items, idx) => {
       axios.delete(`api/article/${id}`)
         .then((response) => {
-            console.log(response);
-          })
-          .catch((error) => {
-          console.log(error);
-          });
-      items.splice(idx, 1);
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      items.splice(idx, 1)
     }
   }
 }

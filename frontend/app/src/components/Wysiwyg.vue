@@ -19,47 +19,44 @@
 <script>
 import { quillEditor } from 'vue-quill-editor'
 import axios from 'axios'
-
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
-
 export default {
-name: "Wysiwyg",
+  name: 'Wysiwyg',
   components: {
     quillEditor
   },
   props: ['item'],
-  data: function() {
-    return {};
+  data: function () {
+    return {}
   },
   methods: {
-    send() {
-      if (!this.item.id){
+    send () {
+      if (!this.item.id) {
         axios.post('/api/articles', {
           title: this.item.title,
           article: this.item.article
         }).then((response) => {
-          console.log(response);
+          console.log(response)
         }, (error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
       } else {
         axios.put(`/api/article/${this.item.id}`, {
           title: this.item.title,
-          article:this.item.article
+          article: this.item.article
         })
           .then(response => {
-            console.log(response);
+            console.log(response)
           })
           .catch(error => {
-            console.log(error);
-          });
+            console.log(error)
+          })
       }
-      this.$emit('close-wysiwyg');
+      this.$emit('close-wysiwyg')
     }
-
   }
 }
 </script>
