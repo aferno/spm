@@ -105,6 +105,8 @@
 .articles__text {
   max-height: 250px;
   min-height: calc(250px / 2);
+  max-width: 80%;
+  margin: 1.4em auto 0 auto;
 }
 .articles__overlay {
   position: absolute;
