@@ -7,10 +7,12 @@
       </div>
       <input class="modal-wysiwyg__title" id="article-title" v-model="item.title" placeholder="Article title">
       <label class="modal-wysiwyg__label">Статья</label>
-      <quillEditor
-        class="modal-wysiwyg__wysiwyg"
-        v-model="item.article">
-      </quillEditor>
+      <div class="modal-wysiwyg__wysiwyg-container">
+        <quillEditor
+          class="modal-wysiwyg__wysiwyg"
+          v-model="item.article">
+        </quillEditor>
+      </div>
       <button class="modal-wysiwyg__send-button" @click="send()">Отправить</button>
     </div>
   </div>

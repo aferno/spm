@@ -43,6 +43,15 @@ export default {
         this.errors.push(e)
       })
   },
+  beforeUpdate () {
+    axios.get('api/articles')
+      .then(response => {
+        this.items = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
   methods: {
     navigateBack () {
       router.go(-1)

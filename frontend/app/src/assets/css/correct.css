@@ -55,6 +55,10 @@
 .modal-wysiwyg__close::after {
   transform: rotate(45deg);
 }
+.modal-wysiwyg__wysiwyg-container {
+  max-height: 280px;
+  overflow: auto;
+}
 .modal-wysiwyg__send-button {
   margin-top: 4rem;
   background-color: #42b983;

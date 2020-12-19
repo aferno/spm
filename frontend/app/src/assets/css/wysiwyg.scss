@@ -71,6 +71,10 @@
   &__wysiwyg {
   }
 
+  &__wysiwyg-container {
+    max-height: 280px;
+    overflow: auto;
+  }
   &__send-button {
     margin-top: 4rem;
     background-color: #42b983;
