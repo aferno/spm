@@ -7,7 +7,6 @@
       </div>
       <div class="list-items">
         <div class="list-items__item"
-             v-model="items"
              v-for="(item, index) in items"
              v-bind:key="item.id"
              v-bind:item="item">

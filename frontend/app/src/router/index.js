@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Articles from '@/components/Articles'
-import Article from '@/components/Article'
+import Articles from '@/components/pages/Articles'
+import Article from '@/components/pages/Article'
 import Admin from '@/components/pages/Admin'
 import About from '@/components/pages/About'
 
@@ -11,8 +11,13 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/articles',
+      path: '/',
       name: 'Articles',
+      component: Articles
+    },
+    {
+      path: '/Articles',
+      name: 'home',
       component: Articles
     },
     {

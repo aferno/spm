@@ -1,22 +1,21 @@
 <template>
   <div class="hello">
     <Header :theme="theme" :bg="require('@/assets/home-bg.jpg')"></Header>
-    <h1>Статьи</h1>
+    <h1>{{posts.length}} Статей</h1>
     <!-- <input v-model="message" placeholder="Поиск по сайту">
     <p>Request to the server with {{ message }}</p> -->
-    <h2 v-for="post in posts" :key="post" class="article-title">
-      <router-link :to="{ name: 'Article', params: { id: post.id }}">{{ post.title }}</router-link>
-    </h2>
-<!--    <div class="container">-->
-<!--          <div class="row">-->
-<!--            <div class="col-lg-12 mx-auto">-->
-<!--              <div v-for="post in posts" :key="post" class="article-preview-block">-->
-<!--                <div v-html="post.article" class="article-preview"></div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--    </div>-->
-<!--  </div>-->
+    <div class="articles">
+      <div class="articles__container container">
+        <div class="articles__item" v-for="post in posts" :key="post">
+            <router-link class="articles__title" :to="{ name: 'Article', params: { id: post.id }}">{{ post.title }}</router-link>
+          <div class="articles__preview">
+            <div class="articles__text" v-html="post.article"></div>
+            <div class="articles__overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -34,7 +33,7 @@ export default {
     posts: [],
     errors: [],
     post: [],
-    theme: 'Блог о всем'
+    theme: 'Блог обо всем'
   }),
 
   created () {
@@ -64,13 +63,5 @@ li {
 }
 a {
   color: #42b983;
-}
-.article-title {
-  color: rgb(44, 62, 80) !important;
-}
-.article-preview {
-  height: 150px;
-  overflow: hidden;
-  font-size: 20px;
 }
 </style>

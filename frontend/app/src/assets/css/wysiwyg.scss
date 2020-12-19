@@ -9,14 +9,14 @@
   padding: 4rem 0;
   overflow: auto;
   background-color: rgba(0, 0, 0, .6);
-  z-index: 100;
+  z-index: 1031;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .modal-wysiwyg {
-  z-index: 101;
+  z-index: 1032;
   padding: 20px;
   display: inline-flex;
   flex-direction: column;
@@ -75,6 +75,7 @@
     margin-top: 4rem;
     background-color: #42b983;
     border-color: #42b983;
+    z-index: 1033;
   }
 }
 .add-new-button {
